@@ -18,11 +18,17 @@ class Solution:
 
 
 #Solution 2
+#Although slower Time Complexity it would operate faster on larger arrays since
+#we wouldnt have to iterate over entire array
+#Time: O(n log(n)) 
+#Time: O(1)
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
+        #Sort array so duplicates are next to each other
         nums.sort()
 
         for i in range(len(nums) - 1):
+            #Return true if adjacent numbers are the same
             if nums[i] == nums[i + 1]:
                 return True        
         return False
