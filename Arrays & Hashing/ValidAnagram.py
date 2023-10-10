@@ -1,3 +1,10 @@
+"""
+Find out if string T is an anagram of String S
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+"""
+
+
 #Time: O(n) iterating over strings 
 #Space: O(n) hashmap is the length of strings
 class Solution:
