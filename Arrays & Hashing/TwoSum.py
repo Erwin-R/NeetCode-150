@@ -21,3 +21,5 @@ class Solution:
                     return [i, j]
 
 #Solution 2 (One Pass Solution)
+#Time: O(n)
+#Space: O(n)
