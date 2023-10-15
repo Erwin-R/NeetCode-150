@@ -26,9 +26,10 @@ class Solution:
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        
+        #Intuition: calculate the difference between target and index value to see if it equals 
+        #another value in the array
+
         map = {} # val : index
-        print(map)
 
         #enumerate allows you to get index and val of array
         for i, n in enumerate(nums): 
