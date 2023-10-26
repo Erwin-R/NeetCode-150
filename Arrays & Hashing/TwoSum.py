@@ -37,4 +37,5 @@ class Solution:
             if diff in map:
                 return [map[diff], i]
 
+            #add value: index to the map if the difference is not found in map
             map[n] = i
