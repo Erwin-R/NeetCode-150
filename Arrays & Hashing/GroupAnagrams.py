@@ -20,8 +20,11 @@
         # Input: strs = ["a"]
         # Output: [["a"]]
 
-#Time: O(n * m)
-#Space: O(n)
+#Time: O(n * m) where n is the size of the array (# of strings), 
+#M is the average length of string
+#Count array time is 26 but since it is a constant we dont include in time complexity
+
+#Space: O(n) #Where n is the size of dic(hashmap)
 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
