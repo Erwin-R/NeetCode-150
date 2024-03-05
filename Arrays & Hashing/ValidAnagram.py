@@ -16,7 +16,7 @@ class Solution:
         #create map for both strings to keep track of characters
         sCount, tCount = {}, {}
 
-        #Iterate through characters in strings 
+        #Iterate through characters in strings to count number of occurences
         for i in range(len(s)):
             sCount[s[i]] = 1 + sCount.get(s[i], 0) 
             tCount[t[i]] = 1 + tCount.get(t[i], 0)
