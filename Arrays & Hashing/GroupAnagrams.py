@@ -28,6 +28,7 @@
 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        #key(letters in string) : list of strings associated with these letters in string
         res = defaultdict(list) #mapping charCount to list of Anagrams
         
         for s in strs:
