@@ -1,4 +1,5 @@
 #Problem: given an array/list of strings, group the anagrams together 
+#chek
 
 #Constraints: 
     # 1. String array will always contain at least one string
