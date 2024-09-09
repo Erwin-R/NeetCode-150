@@ -24,7 +24,7 @@ Test Cases:
 """
 
 #Time: O(nlog(n) + n^2) -> O(n^2)
-#nlog(n) to sort and n to iterate through arrray
+#nlog(n) to sort and n to iterate through array
 #Space: O(1)
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
