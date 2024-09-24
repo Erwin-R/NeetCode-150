@@ -19,3 +19,22 @@ Test Cases:
 """
 #Time:O(n)
 #Space:O(n) where n is the amount of unique characters 
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        #how can we keep track of characters that have already occured? Use a hashset 
+        #we can start a left pointer at 0 and then right pointer at the next index
+
+        l = 0
+        charSet = set()
+        res = 0
+
+        for r in range(len(s)):
+            while s[r] in charSet:
+                charSet.remove(s[l])
+                l += 1
+            charSet.add(s[r])
+            #we check longest here since if we did it in while loop there could still be the possibility of duplicates
+            res = max(res, r - l + 1)
+
+        return res
