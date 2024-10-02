@@ -23,3 +23,43 @@ Test Cases:
 
 #Time: O(n + t) -> O(n) where n is size of the array and we are only making one pass through array and t is size of string T
 #Space: O(n + t) -> O(n) where n is size of the window and t is size of string T
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        if len(s) < len(t):
+            return ""
+
+        countT, window = {}, {}
+        for c in t:
+            countT[c] = 1 + countT.get(c, 0)
+
+        #use have/need variable so we dont have to query through every val in window to see if it matches
+        #characters in countT
+        have, need = 0, len(countT)
+
+        #keeping track of l and r in res so we can splice string for res since we are returning section
+        #of string
+        res, resLen = [-1, -1], float("infinity")
+        l = 0
+        for r in range(len(s)):
+            c = s[r]
+            window[c] = 1 + window.get(c, 0)
+
+            if c in countT and window[c] == countT[c]:
+                have += 1
+            
+            #would not be ">=" since we are only increasing "have" when it is equal to "need"
+            #and not increasing anymore even when there is duplicated
+            while have == need:
+                # update our result
+                if (r - l + 1) < resLen:
+                    res = [l, r]
+                    resLen = r - l + 1
+                
+                #pop from left of our window(want to get smallest window)
+                window[s[l]] -= 1
+                if s[l] in countT and window[s[l]] < countT[s[l]]:
+                    have -= 1
+                l += 1
+
+        l, r = res
+        return s[l : r + 1] if resLen != float("infinity") else ""
