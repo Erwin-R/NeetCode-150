@@ -13,3 +13,17 @@ Test Cases:
         Input: head = []
         Output: []
 """
+
+#Time: O(n) where n is the size of the linked list 
+#Space: O(1) 
+
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        prev, curr = None, head
+
+        while curr:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+        return prev
