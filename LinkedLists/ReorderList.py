@@ -15,5 +15,49 @@ Test Case:
     Example 2:
         Input: head = [1,2,3,4,5]
         Output: [1,5,2,4,3]
-
 """
+
+#Time: O(n) where n is size of linked list
+#Space: O(1)
+class Solution:
+    def reorderList(self, head: Optional[ListNode]) -> None:
+        """
+        Do not return anything, modify head in-place instead.
+        """
+
+        slow = head 
+        fast = head.next
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+        secondHalf = slow.next
+        slow.next = None
+        prev = None
+
+        while secondHalf: 
+            tmp = secondHalf.next
+            secondHalf.next = prev
+            prev = secondHalf
+            secondHalf = tmp 
+        
+        first, second = head, prev
+        
+        #since second half will always be shorter
+        while second: 
+            tmp1, tmp2 = first.next, second.next
+            first.next = second 
+            second.next = tmp1
+            first, second = tmp1, tmp2
+
+
+        # print(slow.val)
+        # print(fast.val)
+        #              s
+        # f     
+        # 1 -> 2  3 <- 4
+        # 1 -> 4 -> 3   2
+        # 1 -> 4 -> 2   3
+
+        #first, second =  2, 3 
