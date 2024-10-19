@@ -35,3 +35,14 @@ class Solution:
                 amount +=  rightMax - height[R]                
 
         return amount
+    
+"""
+Why will the result always be non-negative?
+    leftMax is always updated to be the maximum value between its previous value and the current height at l. This ensures that it either stays the same or increases.
+
+    Since leftMax is the maximum encountered so far, it will never be less than height[l] at any index l. Therefore, the difference leftMax - height[l] will never be negative.
+
+
+    leftMax is always at least as large as the current height at index l, as it's updated using the max() function.
+    Therefore, leftMax - height[l] will either be zero or positive, ensuring res never decreases.
+"""
