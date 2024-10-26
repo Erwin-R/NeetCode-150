@@ -25,8 +25,8 @@ Test Cases:
         Input: head = [[3,null],[3,0],[3,null]]
         Output: [[3,null],[3,0],[3,null]]
 """
-#Time: O(n)
-#Space: O(n)
+#Time: O(n) where n is the size of linked list(we are traversing)
+#Space: O(n) n is size of the hashmap where we store our copies
 
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
