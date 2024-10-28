@@ -16,6 +16,8 @@ Test Cases:
         Output: 3
 """
 
+#Time: O(n) where n is the size of the array we are traversing
+#Space: O(1)
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         slow, fast = 0, 0
