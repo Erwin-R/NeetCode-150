@@ -27,3 +27,25 @@ class Solution1:
         right = 1 + self.maxDepth(root.right)
 
         return max(left, right)
+    
+
+#BFS SOLUTION
+#Time O(n) where n is the number of nodes in tree 
+#Space O(n) where n is the height of the tree(depth)
+class Solution2:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        if not root: return 0
+
+        q = deque([root])
+        level = 0 
+
+        while q:
+            for i in range(len(q)):
+                curr = q.popleft()
+                if curr.left: 
+                    q.append(curr.left)
+                if curr.right: 
+                    q.append(curr.right)
+            level += 1
+
+        return level
