@@ -14,5 +14,28 @@ Test Cases:
         Output: 1
 """
 
-#Time:
-#Space: 
+#Time: O(n) where n is the amount of nodes in the tree(traversing through all of them)
+#Space: O(n) where n is the height of the tree
+class Solution:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        #dfs on left and right sides and then add the levels/height
+        #per level, we take the depth from the levels below
+
+        #adding "self" makes this a member variable (instance of the solution class)
+        #this makes the variable accessible inside the dfs function
+        self.res = 0
+        #function returns height
+        def dfs(curr):
+            if not curr: 
+                return 0
+
+            left = dfs(curr.left)
+            right = dfs(curr.right)
+
+            self.res = max(self.res, left + right)
+
+            return 1 + max(left, right)
+
+        dfs(root)
+
+        return self.res
