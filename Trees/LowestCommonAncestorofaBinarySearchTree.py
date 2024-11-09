@@ -20,3 +20,31 @@ Test Cases:
 # Time: O(log(n)) since we will only be going through half the nodes (small nodes on left and large nodes on right)
 # Worst case the time will be O(h) where h is the height of the tree
 # Space: O(1)
+
+#ITERATION SOLUTION
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        curr = root 
+
+        while curr: 
+            if p.val > curr.val and q.val > curr.val: 
+                curr = curr.right
+            elif p.val < curr.val and q.val < curr.val:
+                curr = curr.left
+            else: 
+                return curr
+            
+
+#RECURSIVE SOLUTION
+#Time: O(n) Worst case
+#Space: O(1)
+class Solution2:
+    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+        if not root or not p or not q:
+            return None
+        if (max(p.val, q.val) < root.val):
+            return self.lowestCommonAncestor(root.left, p, q)
+        elif (min(p.val, q.val) > root.val):
+            return self.lowestCommonAncestor(root.right, p, q)
+        else:
+            return root
