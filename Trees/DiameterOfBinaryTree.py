@@ -21,6 +21,8 @@ class Solution:
         #dfs on left and right sides and then add the levels/height
         #per level, we take the depth from the levels below
 
+        #IMPORTANT TO KNOW: DIAMETER IS LENGTH OF LEFT AND RIGHT SIDE NOT INCLUDING PARENT NODE WHICH IS WHY WE ADD ON LINE 37
+
         #adding "self" makes this a member variable (instance of the solution class)
         #this makes the variable accessible inside the dfs function
         self.res = 0
