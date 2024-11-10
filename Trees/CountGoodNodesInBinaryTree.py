@@ -24,3 +24,18 @@ Test Cases:
 
 #Time: O(n) where n is the number of nodes
 #Space: O(h) where h is the height of the tree(worst case) / O(log(h)) since in best case we are not checking all nodes
+
+class Solution:
+    def goodNodes(self, root: TreeNode) -> int:
+        
+        def dfs(node, maxVal):
+            if not node: return 0
+
+            res = 1 if node.val >= maxVal else 0
+            maxVal = max(maxVal, node.val)
+            res += dfs(node.left, maxVal)
+            res += dfs(node.right, maxVal)
+
+            return res
+
+        return dfs(root, root.val)
