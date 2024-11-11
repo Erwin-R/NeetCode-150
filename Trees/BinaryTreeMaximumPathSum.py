@@ -35,6 +35,7 @@ class Solution:
             #sum with split
             res[0] = max(res[0], node.val + leftMax + rightMax)
 
+            #returning path without split
             return node.val + max(leftMax, rightMax)
 
         dfs(root)
