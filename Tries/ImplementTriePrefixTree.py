@@ -26,6 +26,9 @@ Example 1:
     trie.search("app");     // return True
 """
 
+#Time: O(n) for reach function call
+#Space: O(t) where t is the total number of TrieNodes created in the  tree
+
 class TrieNode: 
     def __init__(self):
         self.children = {}
