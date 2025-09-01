@@ -26,6 +26,9 @@ Test Cases:
         Output: 1
 """
 
+# Time: (n * log n)
+# Space: O(n)
+
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
         #no maxHeap with python so we convert array into negative values

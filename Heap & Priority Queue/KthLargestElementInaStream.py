@@ -40,10 +40,9 @@ Test Cases:
         kthLargest.add(9); // return 8
 """
 
-# Time: O(m * n log(n))
-# Space: O(m) extra space, O(1) or O(n) space depending on sorting algo
-# Where m is the number of calls made to add() and n is the current size of the array
-
+# Time: (m * log k)
+# Space: O(k)
+# Where m is the number of calls made to add
 
 class KthLargest:
 
